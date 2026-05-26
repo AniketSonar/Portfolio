@@ -1,12 +1,4 @@
-import { motion } from "framer-motion"
-
-import {
-  FaReact,
-  FaPython,
-  FaNodeJs,
-  FaGitAlt,
-  FaJava,
-} from "react-icons/fa"
+import { FaReact, FaPython, FaNodeJs, FaGitAlt, FaJava } from "react-icons/fa";
 
 import {
   SiJavascript,
@@ -16,7 +8,7 @@ import {
   SiPostgresql,
   SiExpress,
   SiBootstrap,
-} from "react-icons/si"
+} from "react-icons/si";
 
 const skills = [
   {
@@ -78,115 +70,79 @@ const skills = [
     name: "Git",
     icon: <FaGitAlt />,
   },
-]
+];
 
 function Skills() {
   return (
-    <section
-      id="skills"
-      className="py-24 px-6 relative overflow-hidden"
-    >
-
+    <section id="skills" className="py-24 overflow-hidden relative">
       {/* Background Glow */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 blur-[120px] rounded-full"></div>
+      <div className="absolute top-0 left-0 w-72 h-72 bg-cyan-500/10 blur-[120px] rounded-full"></div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="text-4xl md:text-5xl font-black text-center mb-6"
-        >
+        <h2 className="text-4xl md:text-5xl font-black text-center mb-6">
           Skills & Technologies
-        </motion.h2>
+        </h2>
 
-        {/* Subtitle */}
         <p className="text-slate-400 text-center max-w-3xl mx-auto leading-8 mb-16 text-lg">
-
-          Technologies and tools I use to build responsive,
-          scalable, and modern web applications.
-
+          Technologies and tools I use to build responsive, scalable, and modern
+          web applications.
         </p>
+      </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {/* Scrolling Skills */}
+      <div className="relative">
+        {/* Fade Left */}
+        <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#020617] to-transparent z-20"></div>
 
-          {skills.map((skill, index) => (
+        {/* Fade Right */}
+        <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#020617] to-transparent z-20"></div>
 
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{
-                y: -8,
-                scale: 1.03,
-              }}
-              className="
-                group
-                relative
+        {/* Marquee */}
+        <div className="marquee">
+          <div className="marquee-content">
+            {[...skills, ...skills].map((skill, index) => (
+              <div
+                key={index}
+                className="
+                min-w-[220px]
                 bg-slate-800/50
                 backdrop-blur-xl
                 border border-slate-700
                 rounded-3xl
-                p-8
+                px-8 py-8
                 flex flex-col items-center justify-center
-                text-center
                 hover:border-cyan-400
-                hover:shadow-2xl
+                hover:shadow-xl
                 hover:shadow-cyan-500/10
                 duration-300
-                overflow-hidden
+                group
               "
-            >
-
-              {/* Glow Effect */}
-              <div className="
-                absolute
-                inset-0
-                bg-cyan-500/0
-                group-hover:bg-cyan-500/5
-                duration-300
-              "></div>
-
-              {/* Icon */}
-              <div className="
+              >
+                {/* Icon */}
+                <div
+                  className="
                 text-5xl
                 text-cyan-400
                 mb-5
-                relative
-                z-10
                 group-hover:scale-110
                 duration-300
-              ">
-                {skill.icon}
+              "
+                >
+                  {skill.icon}
+                </div>
+
+                {/* Name */}
+                <h3 className="text-xl font-semibold text-slate-200">
+                  {skill.name}
+                </h3>
               </div>
-
-              {/* Skill Name */}
-              <h3 className="
-                text-lg
-                md:text-xl
-                font-semibold
-                text-slate-200
-                relative
-                z-10
-              ">
-
-                {skill.name}
-
-              </h3>
-
-            </motion.div>
-
-          ))}
-
+            ))}
+          </div>
         </div>
-
       </div>
-
     </section>
-  )
+  );
 }
 
-export default Skills
+export default Skills;
