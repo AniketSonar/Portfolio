@@ -1,33 +1,41 @@
 import { motion } from "framer-motion";
 import projectImage from "../assets/delivery-project.png";
+import portfolioImage from "../assets/portfolio.png"
 
 const projects = [
+  {
+    title: "Railway Delay Prediction System",
+    description:
+      "Machine Learning-powered web application that predicts railway delays using historical and real-time train data with live tracking and interactive analytics.",
+    image: projectImage,
+    tech: [ "React.js",
+    "Node.js",
+    "Express.js",
+    "JavaScript",
+    "Machine Learning"
+  ],
+    github: "https://github.com/AniketSonar/Railway-Delay-Prediction-System",
+    
+  },
+  
   {
     title: "Delivery Management System",
     description:
       "Flask-based web application for delivery personnel to manage package statuses with role-based login and real-time tracking.",
     image: projectImage,
     tech: ["Flask", "MySQL", "JavaScript", "HTML/CSS"],
-    github: "https://github.com/AniketSonar",
+    github: "https://github.com/AniketSonar/DELIVERY-MANAGEMENT-SYSTEM",
   },
 
   {
     title: "Portfolio Website",
     description:
       "Modern responsive portfolio website with animations, particles background, contact form, and responsive design.",
-    image: projectImage,
+    image: portfolioImage,
     tech: ["React", "Tailwind", "Framer Motion"],
-    github: "https://github.com/AniketSonar",
+    github: "https://github.com/AniketSonar/Portfolio",
   },
 
-  {
-    title: "Weather App",
-    description:
-      "Responsive weather application using API integration to display real-time weather information.",
-    image: projectImage,
-    tech: ["React", "API", "CSS"],
-    github: "https://github.com/AniketSonar",
-  },
 ];
 
 function Projects() {
